@@ -1,0 +1,34 @@
+# إنشاء قاموس
+my_dict = {"key1": "value1", "key2": "value2", "key3": "value3"}
+
+# الوصول إلى القيم باستخدام المفتاح
+value = my_dict["key1"]
+
+# تعديل القيم
+my_dict["key2"] = "new_value"
+
+# إضافة عنصر جديد
+my_dict["key4"] = "value4"
+
+# إزالة عنصر باستخدام المفتاح
+del my_dict["key3"]
+
+# التكرار عبر المفاتيح
+for key in my_dict:
+    print(key, my_dict[key])
+
+# التحقق من وجود المفتاح
+key_exists = "key1" in my_dict
+
+# الحصول على قائمة بالمفاتيح أو القيم
+keys_list = list(my_dict.keys())
+values_list = list(my_dict.values())
+
+# الحصول على عدد العناصر في القاموس
+num_items = len(my_dict)
+
+# التندرج (Nested Dictionaries)
+nested_dict = {"key1": {"subkey1": "value1", "subkey2": "value2"}, "key2": {"subkey3": "value3"}}
+
+# المسح (Clear)
+my_dict.clear()

@@ -1,0 +1,18 @@
+def is_prime(num):
+    """Check if a number is prime."""
+    if num < 2:
+        return False
+    for i in range(2, int(num**0.5) + 1):
+        if num % i == 0:
+            return False
+    return True
+
+# Find the first 3 prime numbers greater than 10 but less than 99
+count = 0
+number = 11  # Start checking from 11
+
+while count < 3:
+    if is_prime(number):
+        print(number)
+        count += 1
+    number += 1

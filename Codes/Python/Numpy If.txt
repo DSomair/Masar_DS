@@ -1,0 +1,19 @@
+import numpy as np
+
+def calculate_bonus(years, evaluation):
+    if years <= 10:
+        bonus = np.select([evaluation == "Excellent", evaluation == "Poor"], [0.10, 0.05], default=0)
+    else:
+        bonus = np.select([evaluation == "Excellent", evaluation == "Poor"], [0.20, 0.15], default=0)
+    
+    return bonus
+
+# تعيين القيم
+employee_years = 8
+employee_evaluation = "Excellent"
+
+# حساب المكافأة
+bonus = calculate_bonus(employee_years, employee_evaluation)
+
+# طباعة نتيجة الحساب
+print(f"معدل المكافأة: {bonus * 100}%")

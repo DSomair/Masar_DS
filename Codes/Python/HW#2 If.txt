@@ -1,0 +1,28 @@
+def calculate_bonus(years, evaluation):
+    if years <= 10:
+        if evaluation == "Excellent":
+            bonus_percentage = 0.10
+        elif evaluation == "Poor":
+            bonus_percentage = 0.05
+        else:
+            bonus_percentage = 0
+    else:
+        if evaluation == "Excellent":
+            bonus_percentage = 0.20
+        elif evaluation == "Poor":
+            bonus_percentage = 0.15
+        else:
+            bonus_percentage = 0
+
+    return bonus_percentage
+
+
+# تعيين القيم
+employee_years = 8
+employee_evaluation = "Excellent"
+
+# حساب المكافأة
+bonus = calculate_bonus(employee_years, employee_evaluation)
+
+# طباعة نتيجة الحساب
+print(f"معدل المكافأة: {bonus * 100}%")
