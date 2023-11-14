@@ -13,6 +13,10 @@ Here's how you can upload directly from
 **Create a GitHub Account**
 ![](https://github.com/DSomair/Masar_DS/blob/main/Files/GitHub2.gif)
 **Link your GitHub with Google Colab**
+
+![](Files/Colab.gif)
+
+
 **Upload the notebook to your right folder in GitHub repository**
 
 
