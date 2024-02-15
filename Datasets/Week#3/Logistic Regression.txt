@@ -1,0 +1,54 @@
+# Import necessary libraries
+import numpy as np
+import matplotlib.pyplot as plt
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LogisticRegression
+from sklearn import datasets
+
+# Load a sample dataset (for illustration purposes)
+# Replace this with your own dataset
+iris = datasets.load_iris()
+X = iris.data[:, :2]  # Using only the first two features for simplicity
+y = (iris.target != 0).astype(int)  # Convert to binary classification problem
+
+# Split the dataset into training and testing sets
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+# Create a logistic regression model
+clf = LogisticRegression()
+
+# Train the model
+clf.fit(X_train, y_train)
+
+# Evaluate the model on the test set
+accuracy = clf.score(X_test, y_test)
+print(f"Accuracy on the test set: {accuracy:.2f}")
+
+# Plot the decision boundary
+# (Note: This is just for illustration and works only when X has two features)
+plt.figure(figsize=(8, 6))
+
+# Plot training points
+plt.scatter(X_train[y_train == 0][:, 0], X_train[y_train == 0][:, 1], label="Class 0", marker='o')
+plt.scatter(X_train[y_train == 1][:, 0], X_train[y_train == 1][:, 1], label="Class 1", marker='x')
+
+# Plot testing points
+plt.scatter(X_test[y_test == 0][:, 0], X_test[y_test == 0][:, 1], label="Test Class 0", marker='s')
+plt.scatter(X_test[y_test == 1][:, 0], X_test[y_test == 1][:, 1], label="Test Class 1", marker='^')
+
+# Plot decision boundary
+x_min, x_max = X[:, 0].min() - 1, X[:, 0].max() + 1
+y_min, y_max = X[:, 1].min() - 1, X[:, 1].max() + 1
+xx, yy = np.meshgrid(np.arange(x_min, x_max, 0.01), np.arange(y_min, y_max, 0.01))
+Z = clf.predict(np.c_[xx.ravel(), yy.ravel()])
+Z = Z.reshape(xx.shape)
+plt.contourf(xx, yy, Z, alpha=0.3, cmap='viridis')
+
+# Add labels and legend
+plt.xlabel('Feature 1')
+plt.ylabel('Feature 2')
+plt.title('Logistic Regression Decision Boundary')
+plt.legend()
+
+# Show the plot
+plt.show()
